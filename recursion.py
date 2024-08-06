@@ -79,7 +79,7 @@ print(fact(n))
 
 # zero check in a list using recursion
 
-
+'''
 def check_zero(l):
     # if the list is empty return False
     if not l:
@@ -97,3 +97,30 @@ def check_zero(l):
 
 l = [11, 12, 16, 2, 3, 4, 5, 6]
 print(check_zero(l))
+'''
+
+# Sorting Recursively
+
+
+def min_element(l):
+    """finds the minimum element in the list"""
+    min_value = l[0]
+    for element in l:
+        if min_value > element:
+            min_value = element
+    # print(min_value)
+    return min_value
+
+
+def sort_r(l):
+    """sort the list recursively"""
+    if l == [] or len(l) == 1:
+        return l
+    min_value = min_element(l)
+    # print(l)
+    l.remove(min_value)
+    return [min_value] + sort_r(l)
+
+
+l = [5, 6, 59, 19, 2, 1, 3, 6, 3, 1, 5]
+print(sort_r(l))
